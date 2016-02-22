@@ -5,7 +5,6 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.FrameLayout;
@@ -23,9 +22,12 @@ public class LollipopTwoActivity extends BaseActivity {
     private ImageView imgMove, background_layout;
     private final int normal_duration = 700;
     private int normal_delay = 50;
+    private int set_delay = 200;
 
+    //传入的位置
     private float Px;
     private float Py;
+    //目标位置
     private float Tx;
     private float Ty;
 
@@ -34,18 +36,14 @@ public class LollipopTwoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lolloipop_two);
         super.initToolbar();
-
         imgMove = (ImageView) findViewById(R.id.img_move);
         background_layout = (ImageView) findViewById(R.id.background_layout);
-
         Px = getIntent().getFloatExtra("px", 0);
         Py = getIntent().getFloatExtra("py", 0);
-
         mToolbar.setVisibility(View.INVISIBLE);
 
         setLayout(imgMove, (int) Px, (int) Py);
         setLayout(background_layout, 0, (int) Py - 100);
-
         Tx = getDeviceWidth(this) / 3 + 40 - Px;
         Ty = Py - 100;
 
@@ -57,7 +55,7 @@ public class LollipopTwoActivity extends BaseActivity {
         AnimatorSet set = new AnimatorSet();
         set.playTogether(objectAnimatorX, objectAnimatorY, objectAnimatorL);
         set.setDuration(normal_duration);
-        set.setStartDelay(200);
+        set.setStartDelay(set_delay);
         set.setInterpolator(new AccelerateInterpolator());
         set.start();
     }
