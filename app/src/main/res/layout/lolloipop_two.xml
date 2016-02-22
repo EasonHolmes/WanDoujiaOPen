@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:background="@android:color/black"/>
+
+        <include layout="@layout/toolbar"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/move_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/background_layout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@android:color/white"/>
+
+        <ImageView
+            android:id="@+id/img_move"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center|top"
+            android:src="@mipmap/youtube"/>
+    </FrameLayout>
+</LinearLayout>
